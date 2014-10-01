@@ -5,7 +5,12 @@
 <script type="text/plain" 
 src="https://raw.githubusercontent.com/nmz787/fooplot/master/fooplot.js"></script>
 <script type="text/javascript">
-
+(function() {
+    var a = document.createElement("script");
+    a.src = 
+"//raw.githubusercontent.com/nmz787/fooplot/master/fooplot.js";
+    document.getElementsByTagName("head")[0].appendChild(a)
+})();
 function main() {
   // lots more features are available, this is just a "hello world"
   // program.
