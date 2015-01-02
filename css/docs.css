@@ -10,11 +10,14 @@
 -------------------------------------------------- */
 body {
   position: relative;
-  padding-top: 80px;
   background-color: #fff;
   /*background-image: url(http://subtlepatterns.com/patterns/rockywall.png);*/
   background-repeat: repeat-x;
   background-position: 0 40px;
+}
+
+.content {
+  padding-top: 80px;
 }
 
 /* Tweak navbar brand link to be super sleek
