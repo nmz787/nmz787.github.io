@@ -66,17 +66,26 @@
           <!--/div-->
           <div class="row">   
             <div class="span9 columns">
-<div><h1>Using Python and openCV to extract and manipulate plot lines</h1>
+<h1>Using Python and openCV to extract and manipulate plot lines</h1>
 <p>Someone on the PLOTS-spectrometry mailing list posted a spectrograph they'd collected with their PLOTS-spectrometer, and also a plot the LED manufacturer provided.<br />
 The wondered why their spectrogram didn't look like either of the two plots provided by the manufacturer, and I thought they might look similar if the plot lines were added or multiplied with each other.<br />
 So I made this script to select the plot line color, then extract colors close to that into separate images.<br />
 With these images, the maximum Y value for each column was found, and Y values from the corresponding plots were added and also multiplied, then saved to new output images.</p>
 <h2>LED spectrogram</h2>
-<p><img alt="Input dual-line plot" src="../img/Cree_A19_warm_2700k.JPG" /></p>
+<p><img alt="Input dual-line plot" src="../img/Cree_A19_warm_2700k.JPG" /><br />
+&nbsp;<br />
+&nbsp;  </p>
 <h2>Input dual-line graph</h2>
-<p><img alt="LED spectrogram" src="../img/xbd.png" /></p>
-<h2>Graph of added lines (yellow) and multiplied lines (red). Both lines have been scaled down.</h2>
-<p><img alt="Combined plot" src="../img/xbd_combined.png" title="blog_thumbnail" /></p></div>
+<p><img alt="LED spectrogram" src="../img/xbd.png" /><br />
+&nbsp;  </p>
+<h2>Graph of added (yellow) and multiplied (red) lines, both were scaled down.</h2>
+<p><img alt="Combined plot" src="../img/xbd_combined.png" title="blog_thumbnail" /><br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;  </p>
+<h2>Check out the code I wrote to do this <a href="https://github.com/nmz787/opencv-snippets/blob/master/python/combine_plot.py">here</a></h2>
             </div>
           </div>
         </div>

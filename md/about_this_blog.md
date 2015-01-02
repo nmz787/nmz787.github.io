@@ -4,4 +4,6 @@ When I saw people using github.io for blogging, I thought it was a great idea si
 
 I found some styling I liked, but the software overhead was more than I wanted. After spending a few hours coding, I think I have something that will be easy to publish new posts with. I wrote about 60 lines of code and pieced-together and modified around 130 lines from various sources online, but most notably from [Eric Jones](http://erjjones.github.io/blog/How-I-built-my-blog-in-one-day/).
 
-It seems pretty good so far, a lot more 'modern' than the almost-plaintext HTML I am generally OK with.
+It seems pretty good so far, a lot more 'modern' than the almost-plaintext HTML I am generally OK with.  
+
+Check out the source code [here](https://github.com/nmz787/nmz787.github.io/blob/master/generate_html.py)!

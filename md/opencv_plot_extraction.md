@@ -6,10 +6,19 @@ So I made this script to select the plot line color, then extract colors close t
 With these images, the maximum Y value for each column was found, and Y values from the corresponding plots were added and also multiplied, then saved to new output images.
 
 ## LED spectrogram
-![Input dual-line plot](../img/Cree_A19_warm_2700k.JPG)
+![Input dual-line plot](../img/Cree_A19_warm_2700k.JPG)  
+&nbsp;  
+&nbsp;  
 
 ## Input dual-line graph
-![LED spectrogram](../img/xbd.png)
+![LED spectrogram](../img/xbd.png)  
+&nbsp;  
 
-## Graph of added lines (yellow) and multiplied lines (red). Both lines have been scaled down.
-![Combined plot](../img/xbd_combined.png "blog_thumbnail")
+## Graph of added (yellow) and multiplied (red) lines, both were scaled down.
+![Combined plot](../img/xbd_combined.png "blog_thumbnail")  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+## Check out the code I wrote to do this [here](https://github.com/nmz787/opencv-snippets/blob/master/python/combine_plot.py)

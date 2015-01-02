@@ -3,6 +3,7 @@ import os
 import time
 import markdown
 from lxml import etree as ElementTree
+from StringIO import StringIO
 
 def get_head_and_body(nested_dir_level=0):
     relative_path_levels = ''.join(['../' for x in xrange(0, nested_dir_level)])
@@ -149,7 +150,6 @@ for root, dirs, files in os.walk(os.path.abspath('md')):
     for _file in files:
         with open(os.path.join(root, _file), 'r') as f:
             html = markdown.markdown(unicode(f.read(), 'utf-8'), output_format='xhtml5')
-            html = '<div>{}</div>'.format(html)
             html_filename = os.path.splitext(_file)[0] + '.html'
             with open(os.path.join(os.path.abspath('html'), html_filename), 'w') as fh:
                 s = (get_head_and_body(1) +
@@ -163,7 +163,10 @@ for root, dirs, files in os.walk(os.path.abspath('md')):
             # parse the markdown-cum-html, to get title, synopsis,
             # thumbnail image, and the date the page was last modified
             # all for adding an entry for the post to the index page
-            elem = ElementTree.XML(html)
+            html_for_parsing = '<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" ><div>{}</div>'.format(html)
+            p = ElementTree.XMLParser(remove_blank_text=True, resolve_entities=False)
+            elem = ElementTree.parse(StringIO(html_for_parsing), p)
+            #elem = ElementTree.XML(html_for_parsing, remove_blank_text=True, resolve_entities=False)
             title = elem.xpath('h1')[0].text
             msg = elem.xpath('p')[0].text
             msg = msg if len(msg)<=256 else msg[:256] + '...'
