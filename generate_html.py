@@ -1,4 +1,12 @@
 
+import os
+import time
+import markdown
+from lxml import etree as ElementTree
+
+def get_head_and_body(nested_dir_level=0):
+    relative_path_levels = ''.join(['../' for x in xrange(0, nested_dir_level)])
+    head = """
     <!DOCTYPE html>
     <html class="fuelux" lang="en">
       <head>
@@ -9,8 +17,10 @@
         <link href="http://fuelcdn.com/fuelux/2.2/css/fuelux-responsive.css" rel="stylesheet" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
         <script src="http://fuelcdn.com/fuelux/2.2/loader.min.js" type="text/javascript"></script>
-        <link href="css/docs.css" rel="stylesheet">
-      </head>
+        <link href=\"""" + relative_path_levels + """css/docs.css" rel="stylesheet">
+      </head>"""
+
+    body_start = """
   <body data-spy="scroll" data-target=".subnav" data-offset="50">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -47,7 +57,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list"></i> Code Snippets <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class=""><a href="http://nmz787.github.com/fooplot.html" rel="tooltip" title="Go to fooplot">Fooplot test</a></li>
-                        <li class=""><a href="html/about_this_blog.html" rel="tooltip" title="How and why this exists">About this blog</a></li>
+                        <li class=""><a href=\"""" + relative_path_levels + """html/about_this_blog.html" rel="tooltip" title="How and why this exists">About this blog</a></li>
                         <li class=""><a href="https://gist.github.com/nmz787" rel="tooltip" title="GitHub short code snippets">My GitHub gists</a></li>
                     </ul>
               </li>
@@ -55,109 +65,128 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>"""
+    return head + body_start
+
+post_section_start = """
   <div class="container">
     <div class="marketing">
       <div class="content">   
         <div class="row">                           
-          <div class="span7 columns">
+          <div class="span7 columns">"""
+
+def new_post_section(title, msg, link, img, date = time.strftime('%B %d, %Y')):
+    mid2 = """
     <div class="row">
       <div class="span7">    
         <div class="row">
           <div class="span2">
-            <a href="html/about_this_blog.html" >
-                <img border="0" width="250" height="250" src="img/blog_default.jpg" alt="">
+            <a href="{0}" >
+                <img border="0" width="250" height="250" src="{1}" alt="">
             </a>
           </div>
           <div class="span5">
-            <h4><strong><a href="html/about_this_blog.html">About this blog</a></strong></h4>      
+            <h4><strong><a href="{0}">{2}</a></strong></h4>      
             <p>
-              I needed a place to post about projects, wanted minimal overhead, wanted it to look decent, and be easy to add to and maintain.
+              {3}
             </p>
             <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 02:09:32
+              <i class="icon-calendar"></i> {4}
             </p>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/brightness.html" >
-                <img border="0" width="250" height="250" src="img/blog_default.jpg" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/brightness.html">Finer control of brightness hotkeys in Ubuntu</a></strong></h4>      
-            <p>
-              For some reason the internet couldn't easily provide me with the answer of how to change the increment that Ubuntu's brightness hotkey functionality uses. Basically I have pretty sensitive eyes, in a good way, so I often like to reduce my screen brightness...
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 02:08:02
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/microfluidics_cad.html" >
-                <img border="0" width="250" height="250" src="img/blog_default.jpg" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/microfluidics_cad.html">CAD for microfluidics</a></strong></h4>      
-            <p>
-              I have been working on methods for representing a library of microfluidics parts in various open-source CAD tools. The idea is that eventually I'll put together some sort of drag-n-drop interface for scientists that don't want to deal with CAD, but underst...
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 00:54:52
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/opencv_plot_extraction.html" >
-                <img border="0" width="250" height="250" src="img/xbd_combined.png" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/opencv_plot_extraction.html">Using Python and openCV to extract and manipulate plot lines</a></strong></h4>      
-            <p>
-              Someone on the PLOTS-spectrometry mailing list posted a spectrograph they'd collected with their PLOTS-spectrometer, and also a plot the LED manufacturer provided.
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 00:15:26
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+    """.format(link, img, title, msg, date)
+    return mid2
+
+post_section_end = """
          </div>
        </div>
     </div>
   </div>
 </div>
+"""
 
+blog_start = """
+    <div class="container"> 
+      <div class="marketing">
+        <div class="content">
+          <!--div class="row"-->
+            <!--div class="span9 column"-->
+              <!--hr-->
+            <!--/div-->
+          <!--/div-->
+          <div class="row">   
+            <div class="span9 columns">
+"""
+blog_end = """
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+"""
+
+body_end = """
     <footer class="footer">
       <div>
         <p class="pull-right">  |  <a href="#">Back to top</a>  |       </p>        
-        <p>Page last generated on January 02, 2015</p>
+        <p>Page last generated on """ + time.strftime('%B %d, %Y') + """</p>
         <p>If need be, <a href="https://github.com/nmz787/Feedback/issues/new" title="Leave feedback for Nathan"  target="_blank" >leave me some feedback</a>.</p>  
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
       </div>
     </footer>
   </body>
 </html>
+"""
+
+sections = {}
+
+# walk the md directory to discover files
+for root, dirs, files in os.walk(os.path.abspath('md')):
+    # go through each file in the md directory
+    for _file in files:
+        with open(os.path.join(root, _file), 'r') as f:
+            html = markdown.markdown(unicode(f.read(), 'utf-8'), output_format='xhtml5')
+            html = '<div>{}</div>'.format(html)
+            html_filename = os.path.splitext(_file)[0] + '.html'
+            with open(os.path.join(os.path.abspath('html'), html_filename), 'w') as fh:
+                s = (get_head_and_body(1) +
+                     blog_start +
+                     html +
+                     blog_end +
+                     body_end
+                     )
+                fh.write(s.encode('utf8'))
+
+            # parse the markdown-cum-html, to get title, synopsis,
+            # thumbnail image, and the date the page was last modified
+            # all for adding an entry for the post to the index page
+            elem = ElementTree.XML(html)
+            title = elem.xpath('h1')[0].text
+            msg = elem.xpath('p')[0].text
+            msg = msg if len(msg)<=256 else msg[:256] + '...'
+            img_elems = elem.xpath("//p/img[@title='blog_thumbnail']")
+            img = img_elems[0].get('src') if len(img_elems) else ''
+            img = (img if not img.startswith('../img') else img[len('../'):] ) if len(img) else 'img/blog_default.jpg'
+            
+            # get the time the .md file was last modified (or created)
+            #date_created = os.path.getctime(os.path.join(root, _file))
+            date_modified = os.path.getctime(os.path.join(root, _file))
+            date = time.strftime('%B %d, %Y -- %H:%M:%S', time.localtime(date_modified))
+
+            section = new_post_section(title, msg, 'html/' + html_filename, img, date)
+            sections[section] = time.localtime(date_modified)
+
+# sort the sections based on the file creation/modification time
+sections_html = ''.join(sorted(sections, key=sections.__getitem__, reverse=True))
+
+# write the index file
+with open('index.html', 'w') as fh:
+    fh.write(get_head_and_body() +
+             post_section_start +
+             sections_html +
+             post_section_end +
+             body_end
+             )

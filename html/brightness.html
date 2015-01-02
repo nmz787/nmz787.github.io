@@ -9,7 +9,7 @@
         <link href="http://fuelcdn.com/fuelux/2.2/css/fuelux-responsive.css" rel="stylesheet" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
         <script src="http://fuelcdn.com/fuelux/2.2/loader.min.js" type="text/javascript"></script>
-        <link href="css/docs.css" rel="stylesheet">
+        <link href="../css/docs.css" rel="stylesheet">
       </head>
   <body data-spy="scroll" data-target=".subnav" data-offset="50">
     <div class="navbar navbar-fixed-top">
@@ -47,7 +47,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list"></i> Code Snippets <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class=""><a href="http://nmz787.github.com/fooplot.html" rel="tooltip" title="Go to fooplot">Fooplot test</a></li>
-                        <li class=""><a href="html/about_this_blog.html" rel="tooltip" title="How and why this exists">About this blog</a></li>
+                        <li class=""><a href="../html/about_this_blog.html" rel="tooltip" title="How and why this exists">About this blog</a></li>
                         <li class=""><a href="https://gist.github.com/nmz787" rel="tooltip" title="GitHub short code snippets">My GitHub gists</a></li>
                     </ul>
               </li>
@@ -56,100 +56,27 @@
         </div>
       </div>
     </div>
-  <div class="container">
-    <div class="marketing">
-      <div class="content">   
-        <div class="row">                           
-          <div class="span7 columns">
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/about_this_blog.html" >
-                <img border="0" width="250" height="250" src="img/blog_default.jpg" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/about_this_blog.html">About this blog</a></strong></h4>      
-            <p>
-              I needed a place to post about projects, wanted minimal overhead, wanted it to look decent, and be easy to add to and maintain.
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 02:09:32
-            </p>
+    <div class="container"> 
+      <div class="marketing">
+        <div class="content">
+          <!--div class="row"-->
+            <!--div class="span9 column"-->
+              <!--hr-->
+            <!--/div-->
+          <!--/div-->
+          <div class="row">   
+            <div class="span9 columns">
+<div><h1>Finer control of brightness hotkeys in Ubuntu</h1>
+<p>For some reason the internet couldn't easily provide me with the answer of how to change the increment that Ubuntu's brightness hotkey functionality uses. Basically I have pretty sensitive eyes, in a good way, so I often like to reduce my screen brightness to help me work comfortably at night. Why there are no apparent adjustments for the brightness hotkeys is beyond me, while I would like my brightness hotkeys to work as I desire, in lieu of an easy answer I resorted to coding a GUI slider brightness adjuster.</p>
+<p>Starting with wxPython, I realized the RAM usage was pretty high for something so simple, and I also knew that tk comes with Python by default.<br />
+While I like wxPython in general, for such a simple GUI (remember, it's just a sliding bar) I thought it would be worth it to replicate the functionality in tk. See the scripts I came up with <a href="https://gist.github.com/nmz787/ff7ae7b64d59070390ea">here</a>.  </p>
+<p>Click <a href="https://gist.github.com/nmz787/ff7ae7b64d59070390ea#file-brightness_wxpython-py">here to skip directly to the wxPython source</a></p>
+<p>Or <a href="https://gist.github.com/nmz787/ff7ae7b64d59070390ea#file-brightness_tk-py">here to skip directly to the tk source</a></p></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/brightness.html" >
-                <img border="0" width="250" height="250" src="img/blog_default.jpg" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/brightness.html">Finer control of brightness hotkeys in Ubuntu</a></strong></h4>      
-            <p>
-              For some reason the internet couldn't easily provide me with the answer of how to change the increment that Ubuntu's brightness hotkey functionality uses. Basically I have pretty sensitive eyes, in a good way, so I often like to reduce my screen brightness...
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 02:08:02
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/microfluidics_cad.html" >
-                <img border="0" width="250" height="250" src="img/blog_default.jpg" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/microfluidics_cad.html">CAD for microfluidics</a></strong></h4>      
-            <p>
-              I have been working on methods for representing a library of microfluidics parts in various open-source CAD tools. The idea is that eventually I'll put together some sort of drag-n-drop interface for scientists that don't want to deal with CAD, but underst...
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 00:54:52
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="span7">    
-        <div class="row">
-          <div class="span2">
-            <a href="html/opencv_plot_extraction.html" >
-                <img border="0" width="250" height="250" src="img/xbd_combined.png" alt="">
-            </a>
-          </div>
-          <div class="span5">
-            <h4><strong><a href="html/opencv_plot_extraction.html">Using Python and openCV to extract and manipulate plot lines</a></strong></h4>      
-            <p>
-              Someone on the PLOTS-spectrometry mailing list posted a spectrograph they'd collected with their PLOTS-spectrometer, and also a plot the LED manufacturer provided.
-            </p>
-            <p>
-              <i class="icon-calendar"></i> January 02, 2015 -- 00:15:26
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-         </div>
-       </div>
-    </div>
-  </div>
-</div>
 
     <footer class="footer">
       <div>
