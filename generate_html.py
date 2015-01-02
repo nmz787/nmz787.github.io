@@ -48,6 +48,7 @@ def get_head_and_body(nested_dir_level=0):
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list"></i> Projects <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        <li class=""><a href="https://www.takeitapart.com/" rel="tooltip" title="Go to takeitapart.com" target="_blank">Take It Apart</a></li>
                         <li class=""><a href="https://github.com/nmz787/open-spectrometer" rel="tooltip" title="Go to open-spectrometer on GitHub" target="_blank">open-spectrometer</a></li>
                         <li class=""><a href="http://hackaday.io/project/1342-open-spectrometer" rel="tooltip" title="Go to open-spectrometer on hackaday.io" target="_blank">open-spectrometer (hackaday)</a></li>
                         <li class=""><a href="https://github.com/nmz787/rs232-sniffer" rel="tooltip" title="Go to rs232-sniffer on GitHub" target="_blank">rs232-sniffer</a></li>
