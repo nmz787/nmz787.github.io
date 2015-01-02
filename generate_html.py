@@ -57,8 +57,8 @@ def get_head_and_body(nested_dir_level=0):
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list"></i> Code Snippets <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class=""><a href="http://nmz787.github.com/fooplot.html" rel="tooltip" title="Go to fooplot">Fooplot test</a></li>
-                        <li class=""><a href=\"""" + relative_path_levels + """html/about_this_blog.html" rel="tooltip" title="How and why this exists">About this blog</a></li>
                         <li class=""><a href="https://gist.github.com/nmz787" rel="tooltip" title="GitHub short code snippets">My GitHub gists</a></li>
+                        <li class=""><a href=\"""" + relative_path_levels + """html/about_this_blog.html" rel="tooltip" title="How and why this exists">About this blog</a></li>
                     </ul>
               </li>
             </ul>       
