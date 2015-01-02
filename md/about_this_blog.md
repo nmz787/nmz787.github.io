@@ -6,4 +6,7 @@ I found some styling I liked, but the software overhead was more than I wanted. 
 
 It seems pretty good so far, a lot more 'modern' than the almost-plaintext HTML I am generally OK with.  
 
-Check out the source code [here](https://github.com/nmz787/nmz787.github.io/blob/master/generate_html.py)!
+## Check out the source code [here](https://github.com/nmz787/nmz787.github.io/blob/master/generate_html.py)!
+
+* References
+    * http://daringfireball.net/projects/markdown/syntax
