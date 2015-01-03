@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <script src="js/numeric-1.2.6.min.js"></script>
+    <script src="js/binomial.js"></script>
+    <script src="js/verb.js"></script>
+    <script src="js/conversions.js"></script>
+
+    <script src="js/lightgl.js"></script>
+    <script src="js/viewer.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/microfluidic-style.css">
+
+  </head>
+
+	<body>
+
+		<div id="container">
+
+			<h2> Microfluidics </h2>
+      <b>Parabolic Channel</b><pre>TODO: add something here</pre>
+
+			<div id="0" class="viewer"></div>
+    
+      <script>
+
+        function parabolic_channel(length, width, depth){
+          var half_width = width/2;
+          var half_length = length/2;
+          var degree = 2
+            , knots = [0, 0, 0, 1, 1, 1]
+            , pts = [   [ [-half_width, -half_length, 0], [0, -half_length, depth], [half_width, -half_length, 0] ],
+                  [ [-half_width, 0           , 0], [0, 0           , depth], [half_width, 0           , 0] ],
+                  [ [-half_width, half_length , 0], [0, half_length , depth], [half_width, half_length , 0] ]
+                ]
+                  
+            , wts = [   [ 1, 1, 1],
+                  [ 1, 1, 1],
+                  [ 1, 1, 1]
+                ];
+
+          srf1 = new verb.NurbsSurface( degree, knots, degree, knots, pts, wts );
+
+          udivs0 =6000;
+          vdivs0 =6000;
+          return srf1;
+        }
+
+        verb.init();
+        var geom = [];
+        var srf1, srf2;
+
+        geom.push(parabolic_channel(length=100, width=10, depth=-20));
+
+
+        //addMeshToScene( tessellate(srf1, udivs0, vdivs0), false );
+        
+        //var tess1 = tess(srf1, udivs0, vdivs0);
+        
+        //var res = verb.eval.intersect_meshes_by_aabb( tess1.points, tess1.faces, 
+        //  tess1.uvs, tess2.points, tess2.faces, tess2.uvs );
+
+        //var ref = verb.eval.intersect_rational_surface_surface_by_aabb_refine(srf1.get('degreeU'), srf1.get('knotsU'), srf1.get('degreeV'), srf1.get('knotsV'), srf1.homogenize(), srf2.get('degreeU'), srf2.get('knotsU'), srf2.get('degreeV'), srf2.get('knotsV'), srf2.homogenize(), 1e-6);
+
+        //var runs = 1;
+
+        //var d1 = Date.now();
+
+        /*
+        for (var i = 0 ; i < runs; i++){
+
+        var ref = verb.eval.intersect_rational_surface_surface_by_aabb_refine(srf1.get('degreeU'), srf1.get('knotsU'), srf1.get('degreeV'), srf1.get('knotsV'), srf1.homogenize(), srf2.get('degreeU'), srf2.get('knotsU'), srf2.get('degreeV'), srf2.get('knotsV'), srf2.homogenize(), 1e-6);
+
+        }
+
+        var d2 = Date.now();
+
+        console.log("intersected in ", (d2 - d1) / runs, "ms")
+
+        for (var i = 0; i < ref.length; i++){
+
+          var homo = verb.eval.homogenize_1d( ref[i].control_points, ref[i].weights );
+          var res2 = verb.eval.rational_curve_adaptive_sample(ref[i].degree, ref[i].knots, homo, 1e-6 );
+
+          addLinesToScene( 
+            pointsAsGeometry( 
+              asVector3( res2 )));
+        }
+        */
+        geom.map(function(g){
+          addViewer(new Viewer( g, 1300, 600, -2 ) );
+        });
+        //render();
+
+      </script>
+
+
+    </div>
+
+  </body>
+
+</html>
