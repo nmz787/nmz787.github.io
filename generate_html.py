@@ -146,9 +146,10 @@ body_end = """
 sections = {}
 
 # walk the md directory to discover files
-for root, dirs, files in os.walk(os.path.abspath('md')):
+for _file in os.listdir(os.path.abspath('md')):
+    root = os.path.abspath('md')
     # go through each file in the md directory
-    for _file in files:
+    if os.path.isfile(os.path.join(root, _file)):
         with open(os.path.join(root, _file), 'r') as f:
             html = markdown.markdown(unicode(f.read(), 'utf-8'), output_format='xhtml5')
             html_filename = os.path.splitext(_file)[0] + '.html'
