@@ -76,7 +76,6 @@ function Viewer(ele, width, height, depth, async) {
   var that = this;
 
   gl.onmousemove = function(e) {
-    
     if (e.dragging) {
       if (e.ctrlKey) {
         x+=e.deltaX/10;
@@ -84,7 +83,7 @@ function Viewer(ele, width, height, depth, async) {
         //x=e.layerX;
         //y=e.layerY;
       } else{
-          console.log(angleY);
+          //console.log(angleY);
         if (angleY>2*Math.pi){
 
           console.log('maxed Y');
@@ -104,18 +103,26 @@ function Viewer(ele, width, height, depth, async) {
     }
   };
 
-
-  gl.onmousewheel = function(e) {
-    //console.log(e.CLICK);
+  gl.ontouchstart = function(e){
     //console.log(e);
+    //gl.onmousemove(e);
+  }
 
-      
+  gl.ontouchmove = function(e){
+    gl.onmousemove(e);
+  }
+
+  gl.ontouchend = function(e){
+    //console.log(e);
+    //gl.onmousemove(e);
+  }
+
+  gl.onmousewheel = function(e) {      
       depth += e.wheelDeltaY/120;
 
       viewers.map(function(viewer) {
         viewer.gl.ondraw();
       });
-
   };
   
   gl.ondraw = function() {
