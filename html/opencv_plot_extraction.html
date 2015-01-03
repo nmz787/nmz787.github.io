@@ -68,12 +68,13 @@
           <div class="row">   
             <div class="span9 columns">
 <h1>Using Python and openCV to extract and manipulate plot lines</h1>
-<p>Someone on the PLOTS-spectrometry mailing list posted a spectrograph they'd collected with their PLOTS-spectrometer, and also a plot the LED manufacturer provided.<br />
+<p>Someone on the PLOTS-spectrometry mailing list posted two spectrographs they'd collected with their PLOTS-spectrometer, and also a plot the LED manufacturer provided.<br />
 The wondered why their spectrogram didn't look like either of the two plots provided by the manufacturer, and I thought they might look similar if the plot lines were added or multiplied with each other.<br />
 So I made this script to select the plot line color, then extract colors close to that into separate images.<br />
 With these images, the maximum Y value for each column was found, and Y values from the corresponding plots were added and also multiplied, then saved to new output images.</p>
-<h2>LED spectrogram</h2>
-<p><img alt="Input dual-line plot" src="../img/Cree_A19_warm_2700k.JPG" /><br />
+<h2>LED spectrograms in question</h2>
+<p><img alt="Input dual-line plot" src="../img/Cree_A19_warm_2700k.JPG" /> </p>
+<p><img alt="Input dual-line plot" src="../img/Cree_A19_daylight_5000k.JPG" /><br />
 &nbsp;<br />
 &nbsp;  </p>
 <h2>Using this dual-line graph as input</h2>
@@ -112,6 +113,25 @@ With these images, the maximum Y value for each column was found, and Y values f
 <p><img alt="openCV image" src="../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_multiplied.png" />  </p>
 <h2>Graph of added (yellow) and multiplied (red) lines, both were scaled down.</h2>
 <p><img alt="openCV image" src="../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_multiplied_plus_added.png" />  </p>
+<p>&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;  </p>
+<h2>So to sum things up, these were in question</h2>
+<p><img alt="Input dual-line plot" src="../img/Cree_A19_warm_2700k.JPG" /> </p>
+<p><img alt="Input dual-line plot" src="../img/Cree_A19_daylight_5000k.JPG" />  </p>
+<p>&nbsp;<br />
+&nbsp;  </p>
+<h2>And what I thought might have looked similar after some computation.</h2>
+<p><img alt="openCV image" src="../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_multiplied_plus_added.png" title="blog_thumbnail" />  </p>
+<p><img alt="openCV image" src="../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_multiplied_plus_added.png" />  </p>
+<p>&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;  </p>
+<h2>What do you think? Leave me some <a href="https://github.com/nmz787/Feedback/issues/new">Feedback</a></h2>
 <p>&nbsp;<br />
 &nbsp;<br />
 &nbsp;<br />
