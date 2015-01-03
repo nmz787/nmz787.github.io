@@ -10,12 +10,75 @@ With these images, the maximum Y value for each column was found, and Y values f
 &nbsp;  
 &nbsp;  
 
-## Input dual-line graph
-![LED spectrogram](../img/xbd.png)  
+## Using this dual-line graph as input
+
+![openCV image](../img/opencv_combine_plot/two_line_plot_cropped.png )  
 &nbsp;  
 
+## These binary images were extracted of the individual plot lines
+
+![openCV image](../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_extracted_0.png )  
+
+![openCV image](../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_extracted_1.png )  
+
+## Plots' Y-values added together
+
+![openCV image](../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_added.png )  
+
+## Added, then divided by 2  
+
+![openCV image](../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_added_scaled.png )  
+
+## Square root of the multiples ( sqrt(y1 * y2) )  
+
+![openCV image](../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_multiplied.png )  
+
 ## Graph of added (yellow) and multiplied (red) lines, both were scaled down.
-![Combined plot](../img/xbd_combined.png "blog_thumbnail")  
+
+![openCV image](../img/opencv_combine_plot/two_line_out/two_line_plot_cropped_multiplied_plus_added.png "blog_thumbnail")  
+
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+
+
+## Using this triple-line graph image as input  
+
+![openCV image](../img/opencv_combine_plot/triple_line_plot_cropped.png )  
+
+## The results from processing:  
+## Binary images of extracted plots
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_extracted_0.png )  
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_extracted_1.png )  
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_extracted_2.png )  
+
+## Added
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_added.png )  
+
+## Added then divided by 3
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_added_scaled.png )  
+
+## Cube root of the multiples ( cube_root(y1 * y2 * y3) )
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_multiplied.png )  
+
+## Graph of added (yellow) and multiplied (red) lines, both were scaled down.
+
+![openCV image](../img/opencv_combine_plot/triple_line_out/triple_line_plot_cropped_multiplied_plus_added.png )  
+
+
+
+
+
 &nbsp;  
 &nbsp;  
 &nbsp;  
