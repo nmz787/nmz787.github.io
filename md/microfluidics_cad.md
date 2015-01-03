@@ -20,8 +20,7 @@ For now I've only implemented some things using [implicitCAD]() and [verbnurbs](
 
 
 <div id="container">
-  <h2> Microfluidics </h2>
-  <b>Parabolic Channel</b><pre>TODO: add something here</pre>
+  <b>Parabolic Channel</b><pre>USAGE: click and drag to pan around, zoom with middle-mouse button, and CTRL+click to move around.</pre>
   <div id="0" class="viewer"></div>
   <script>
     function parabolic_channel(length, width, depth){
@@ -41,8 +40,6 @@ For now I've only implemented some things using [implicitCAD]() and [verbnurbs](
 
       srf1 = new verb.NurbsSurface( degree, knots, degree, knots, pts, wts );
 
-      udivs0 =6000;
-      vdivs0 =6000;
       return srf1;
     }
 
@@ -55,6 +52,5 @@ For now I've only implemented some things using [implicitCAD]() and [verbnurbs](
     geom.map(function(g){
       addViewer(new Viewer( g, 1200, 600, -2 ) );
     });
-    //render();
   </script>  
 </div>
