@@ -130,18 +130,20 @@ blog_end = """
     </div>
 """
 
-body_end = """
-    <footer class="footer">
-      <div>
-        <p class="pull-right">  |  <a href="#">Back to top</a>  |       </p>        
-        <p>Page last generated on """ + time.strftime('%B %d, %Y') + """</p>
-        <p>If need be, <a href="https://github.com/nmz787/Feedback/issues/new" title="Leave feedback for Nathan"  target="_blank" >leave me some feedback</a>.</p>  
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
-      </div>
-    </footer>
-  </body>
-</html>
-"""
+def get_body_end(_time):
+    body_end = """
+        <footer class="footer">
+          <div>
+            <p class="pull-right">  |  <a href="#">Back to top</a>  |       </p>
+            <p>Page last modified on """ + _time + """</p>
+            <p>If need be, <a href="https://github.com/nmz787/Feedback/issues/new" title="Leave feedback for Nathan"  target="_blank" >leave me some feedback</a>.</p>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+          </div>
+        </footer>
+      </body>
+    </html>
+    """
+    return body_end
 
 sections = {}
 
@@ -151,6 +153,12 @@ for _file in os.listdir(os.path.abspath('md')):
     # go through each file in the md directory
     if os.path.isfile(os.path.join(root, _file)):
         with open(os.path.join(root, _file), 'r') as f:
+            # get the time the .md file was last modified (or created)
+            #date_created = os.path.getctime(os.path.join(root, _file))
+            date_modified = os.path.getctime(os.path.join(root, _file))
+            date_long = time.strftime('%B %d, %Y -- %H:%M:%S', time.localtime(date_modified))
+            date_short = time.strftime('%B %d, %Y', time.localtime(date_modified))
+
             html = markdown.markdown(unicode(f.read(), 'utf-8'), output_format='xhtml5')
             html_filename = os.path.splitext(_file)[0] + '.html'
             with open(os.path.join(os.path.abspath('html'), html_filename), 'w') as fh:
@@ -158,7 +166,7 @@ for _file in os.listdir(os.path.abspath('md')):
                      blog_start +
                      html +
                      blog_end +
-                     body_end
+                     get_body_end(date_short)
                      )
                 fh.write(s.encode('utf8'))
 
@@ -176,12 +184,9 @@ for _file in os.listdir(os.path.abspath('md')):
             img = img_elems[0].get('src') if len(img_elems) else ''
             img = (img if not img.startswith('../img') else img[len('../'):] ) if len(img) else 'img/blog_default.jpg'
             
-            # get the time the .md file was last modified (or created)
-            #date_created = os.path.getctime(os.path.join(root, _file))
-            date_modified = os.path.getctime(os.path.join(root, _file))
-            date = time.strftime('%B %d, %Y -- %H:%M:%S', time.localtime(date_modified))
+            
 
-            section = new_post_section(title, msg, 'html/' + html_filename, img, date)
+            section = new_post_section(title, msg, 'html/' + html_filename, img, date_long)
             sections[section] = time.localtime(date_modified)
 
 # sort the sections based on the file creation/modification time
@@ -193,5 +198,5 @@ with open('index.html', 'w') as fh:
              post_section_start +
              sections_html +
              post_section_end +
-             body_end
+             get_body_end(time.strftime('%B %d, %Y'))
              )
