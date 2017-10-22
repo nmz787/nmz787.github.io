@@ -14,10 +14,10 @@ def get_head_and_body(nested_dir_level=0):
         <meta charset="utf-8">
         <title>Nathan McCorkle</title>
         <!-- styles -->
-        <link href="http://fuelcdn.com/fuelux/2.2/css/fuelux.css" rel="stylesheet" />
-        <link href="http://fuelcdn.com/fuelux/2.2/css/fuelux-responsive.css" rel="stylesheet" />
+        <link href=\"""" + relative_path_levels + """css/fuelux.min.css" rel="stylesheet" />
+        <link href=\"""" + relative_path_levels + """css/fuelux-responsive.min.css" rel="stylesheet" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
-        <script src="http://fuelcdn.com/fuelux/2.2/loader.min.js" type="text/javascript"></script>
+        <script src=\"""" + relative_path_levels + """js/loader.min.js" type="text/javascript"></script>
         <link href=\"""" + relative_path_levels + """css/docs.css" rel="stylesheet">
       </head>"""
 
@@ -137,7 +137,7 @@ def get_body_end(_time):
             <p class="pull-right">  |  <a href="#">Back to top</a>  |       </p>
             <p>Page last modified on """ + _time + """</p>
             <p>If need be, <a href="https://github.com/nmz787/Feedback/issues/new" title="Leave feedback for Nathan"  target="_blank" >leave me some feedback</a>.</p>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
           </div>
         </footer>
       </body>
